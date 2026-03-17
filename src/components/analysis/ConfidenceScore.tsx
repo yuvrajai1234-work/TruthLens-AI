@@ -10,7 +10,10 @@ const ConfidenceScore = ({ confidence, isDeepfake }: ConfidenceScoreProps) => {
   return (
     <div className="rounded-2xl border border-glass bg-glass p-6 backdrop-blur-xl shadow-card">
       <div className="mb-6 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-foreground">Detection Result</h3>
+        <div>
+          <h3 className="text-lg font-semibold text-foreground">DETECT: EfficientNet Analysis</h3>
+          <p className="text-xs text-muted-foreground">CNN-based binary classification</p>
+        </div>
         <Shield className="h-5 w-5 text-primary" />
       </div>
 

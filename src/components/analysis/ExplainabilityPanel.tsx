@@ -13,11 +13,11 @@ const ExplainabilityPanel = ({ anomalies, technicalDetails }: ExplainabilityPane
         <div className="flex items-center gap-2 mb-2">
           <Brain className="h-5 w-5 text-primary" />
           <h3 className="text-lg font-semibold text-foreground">
-            AI Explainability
+            EXPLAIN: Gemini Vision Analysis
           </h3>
         </div>
         <p className="text-sm text-muted-foreground">
-          Understanding the detection reasoning
+          Generative AI-powered forensic reasoning
         </p>
       </div>
 
@@ -29,16 +29,16 @@ const ExplainabilityPanel = ({ anomalies, technicalDetails }: ExplainabilityPane
             </AccordionTrigger>
             <AccordionContent className="text-sm text-muted-foreground space-y-2">
               <div className="rounded-lg bg-secondary/50 p-3">
-                <h5 className="font-medium text-foreground mb-1">CNN Analysis</h5>
-                <p>Convolutional neural networks analyzing facial features, textures, and artifacts</p>
+                <h5 className="font-medium text-foreground mb-1">EfficientNet-B0 CNN</h5>
+                <p>Processes video frames to extract facial features and detect synthesization patterns at the pixel level.</p>
               </div>
               <div className="rounded-lg bg-secondary/50 p-3">
-                <h5 className="font-medium text-foreground mb-1">RNN Audio Processing</h5>
-                <p>Recurrent networks detecting voice synthesis and audio-visual mismatches</p>
+                <h5 className="font-medium text-foreground mb-1">Google Gemini Vision</h5>
+                <p>Multimodal analysis of suspected frames to identify high-level semantic inconsistencies and metadata anomalies.</p>
               </div>
               <div className="rounded-lg bg-secondary/50 p-3">
-                <h5 className="font-medium text-foreground mb-1">Temporal Analysis</h5>
-                <p>Frame sequence analysis for consistency and natural motion patterns</p>
+                <h5 className="font-medium text-foreground mb-1">Temporal Artifact Detection</h5>
+                <p>Analyzing frame-to-frame continuity and audio-visual synchronization (lip-sync alignment).</p>
               </div>
             </AccordionContent>
           </AccordionItem>
@@ -81,10 +81,10 @@ const ExplainabilityPanel = ({ anomalies, technicalDetails }: ExplainabilityPane
           <div className="flex gap-3">
             <Info className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
             <div className="text-sm">
-              <h5 className="font-medium text-foreground mb-1">About XAI</h5>
+              <h5 className="font-medium text-foreground mb-1">Forensic Pipeline</h5>
               <p className="text-muted-foreground">
-                Our explainable AI (XAI) approach uses LIME and SHAP techniques to visualize 
-                which features influenced the detection, making the AI's decision-making transparent.
+                Our hybrid approach combines CNN pixel-level precision with Gemini's high-level semantic understanding 
+                to provide the most comprehensive deepfake detection available.
               </p>
             </div>
           </div>

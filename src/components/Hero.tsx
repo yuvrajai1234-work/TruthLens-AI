@@ -13,7 +13,7 @@ const Hero = () => {
         <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-glass bg-glass px-6 py-3 backdrop-blur-xl">
           <Sparkles className="h-5 w-5 text-primary" />
           <span className="text-sm font-medium text-foreground">
-            Powered by Advanced AI & Explainable ML
+            EfficientNet CNN + Google Gemini 1.5 Vision
           </span>
         </div>
         
@@ -34,10 +34,10 @@ const Hero = () => {
               <Shield className="h-6 w-6 text-primary" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-foreground">
-              Multi-Modal Analysis
+              DETECT
             </h3>
             <p className="text-sm text-muted-foreground">
-              Analyzes video frames, audio patterns, and temporal inconsistencies
+              EfficientNet CNN flags facial and temporal artifacts at pixel scale
             </p>
           </div>
           
@@ -46,10 +46,10 @@ const Hero = () => {
               <Eye className="h-6 w-6 text-primary" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-foreground">
-              Explainable AI
+              EXPLAIN
             </h3>
             <p className="text-sm text-muted-foreground">
-              Visual heatmaps and detailed reasoning for every detection
+              Gemini Vision provides human-readable forensic reasoning
             </p>
           </div>
           
@@ -58,10 +58,10 @@ const Hero = () => {
               <Sparkles className="h-6 w-6 text-primary" />
             </div>
             <h3 className="mb-2 text-lg font-semibold text-foreground">
-              Real-Time Results
+              REPORT
             </h3>
             <p className="text-sm text-muted-foreground">
-              Fast processing with frame-by-frame confidence scoring
+              Professional PDF evidence logs generated automatically
             </p>
           </div>
         </div>

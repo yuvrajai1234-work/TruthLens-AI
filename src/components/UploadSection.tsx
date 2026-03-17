@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Upload, Video, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -10,7 +10,25 @@ interface UploadSectionProps {
 
 const UploadSection = ({ onVideoUpload, isAnalyzing }: UploadSectionProps) => {
   const [isDragging, setIsDragging] = useState(false);
+  const [analysisStep, setAnalysisStep] = useState(0);
   const { toast } = useToast();
+
+  const steps = [
+    { label: "Step 1: DETECT", sub: "Running EfficientNet CNN Analysis..." },
+    { label: "Step 2: EXPLAIN", sub: "Google Gemini 1.5 Vision Reasoning..." },
+    { label: "Step 3: REPORT", sub: "Generating Automated Forensic Report..." },
+  ];
+
+  useEffect(() => {
+    let interval: any;
+    if (isAnalyzing) {
+      setAnalysisStep(0);
+      interval = setInterval(() => {
+        setAnalysisStep((prev) => (prev + 1) % 3);
+      }, 1500);
+    }
+    return () => clearInterval(interval);
+  }, [isAnalyzing]);
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -48,7 +66,7 @@ const UploadSection = ({ onVideoUpload, isAnalyzing }: UploadSectionProps) => {
               ? "border-primary bg-primary/5 shadow-glow" 
               : "border-glass bg-glass"
             }
-            ${isAnalyzing ? "opacity-50 pointer-events-none" : ""}
+            ${isAnalyzing ? "border-primary shadow-glow" : ""}
           `}
           onDragOver={(e) => {
             e.preventDefault();
@@ -59,15 +77,28 @@ const UploadSection = ({ onVideoUpload, isAnalyzing }: UploadSectionProps) => {
         >
           <div className="p-12 text-center backdrop-blur-xl">
             {isAnalyzing ? (
-              <div className="flex flex-col items-center gap-4">
-                <Loader2 className="h-16 w-16 text-primary animate-spin" />
-                <div>
-                  <h3 className="text-2xl font-semibold text-foreground mb-2">
-                    Analyzing Video...
+              <div className="flex flex-col items-center gap-6 animate-in fade-in duration-500">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse" />
+                  <Loader2 className="h-20 w-20 text-primary animate-spin relative z-10" />
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-3xl font-black tracking-tighter text-foreground bg-gradient-primary bg-clip-text text-transparent">
+                    {steps[analysisStep].label}
                   </h3>
-                  <p className="text-muted-foreground">
-                    Running multi-modal deepfake detection
+                  <p className="text-muted-foreground font-medium animate-pulse">
+                    {steps[analysisStep].sub}
                   </p>
+                </div>
+                <div className="flex gap-2">
+                  {[0, 1, 2].map((i) => (
+                    <div 
+                      key={i} 
+                      className={`h-1.5 w-12 rounded-full transition-all duration-500 ${
+                        i <= analysisStep ? "bg-primary shadow-glow" : "bg-secondary"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             ) : (

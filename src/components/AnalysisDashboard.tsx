@@ -6,6 +6,7 @@ import ConfidenceScore from "@/components/analysis/ConfidenceScore";
 import FrameTimeline from "@/components/analysis/FrameTimeline";
 import AnomalyList from "@/components/analysis/AnomalyList";
 import ExplainabilityPanel from "@/components/analysis/ExplainabilityPanel";
+import ForensicReport from "@/components/analysis/ForensicReport";
 
 interface AnalysisDashboardProps {
   data: any;
@@ -14,6 +15,7 @@ interface AnalysisDashboardProps {
 
 const AnalysisDashboard = ({ data, onReset }: AnalysisDashboardProps) => {
   const [selectedFrame, setSelectedFrame] = useState<number | null>(null);
+  const [showReport, setShowReport] = useState(false);
 
   return (
     <div className="min-h-screen p-6">
@@ -50,12 +52,17 @@ const AnalysisDashboard = ({ data, onReset }: AnalysisDashboardProps) => {
             <Button
               size="sm"
               className="bg-gradient-primary hover:shadow-glow"
+              onClick={() => setShowReport(true)}
             >
               <Download className="mr-2 h-4 w-4" />
               Export Report
             </Button>
           </div>
         </div>
+
+        {showReport && (
+          <ForensicReport data={data} onClose={() => setShowReport(false)} />
+        )}
 
         {/* Main Grid */}
         <div className="grid gap-6 lg:grid-cols-3">
