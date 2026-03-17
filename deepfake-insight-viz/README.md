@@ -11,7 +11,7 @@ TruthLens AI leverages Generative AI to detect deepfake videos and provide expla
 - **Why EfficientNet?**: Optimized for accuracy-to-latency tradeoff, allowing real-time inference during the hackathon.
 
 ### 2. EXPLAIN : Generative AI Analysis (Google Gemini Vision)
-- **Provider**: Google Gemini 1.5 Pro Vision API
+- **Provider**: Google Gemini 1.5 Pro Vision API (Provided no credit limit issue)
 - **Role**: Transforms detection results into human-readable forensic explanations.
 - **Artifact Detection**: Identifies facial inconsistencies (blinking, symmetry), temporal motion artifacts, and lip-sync mismatch.
 - **Goal**: Provide "Transparent AI" (XAI) so users understand *why* a video was flagged.
@@ -29,9 +29,7 @@ TruthLens AI leverages Generative AI to detect deepfake videos and provide expla
 - **ML Architecture**: Hybrid (EfficientNet + Google Gemini Vision)
 - **State Management**: TanStack Query (React Query)
 
-## 🏁 Hackathon Ready
+## 🏁 Conclusion
 
 This repository contains a high-fidelity, interactive UI that simulates the full 3-step pipeline. The logic in `src/pages/Index.tsx` is structured to be easily connected to live Python/PyTorch backends or direct API calls to Google AI Studio.
 
----
-*Fighting misinformation with transparency.*
