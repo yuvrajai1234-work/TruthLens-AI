@@ -29,23 +29,7 @@ TruthLens AI leverages Generative AI to detect deepfake videos and provide expla
 - **ML Architecture**: Hybrid (EfficientNet + Google Gemini Vision)
 - **State Management**: TanStack Query (React Query)
 
-## 🏁 Hackathon Ready
+## 🏁 Conclusion
 
 This repository contains a high-fidelity, interactive UI that simulates the full 3-step pipeline. The logic in `src/pages/Index.tsx` is structured to be easily connected to live Python/PyTorch backends or direct API calls to Google AI Studio.
 
----
-
-**Project URL**: [https://lovable.dev/projects/b83ea556-e905-4c86-b182-ebaab25aea98](https://lovable.dev/projects/b83ea556-e905-4c86-b182-ebaab25aea98)
-
-*Fighting misinformation with transparency.*
-
-## How to use locally
-
-1. Install dependencies:
-   ```sh
-   npm install
-   ```
-2. Start the development server:
-   ```sh
-   npm run dev
-   ```
