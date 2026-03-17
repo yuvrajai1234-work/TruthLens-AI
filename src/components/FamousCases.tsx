@@ -1,9 +1,12 @@
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronLeft, ChevronRight, Play, ShieldAlert } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, ShieldAlert, Lock } from "lucide-react";
 import { Button } from "./ui/button";
 import { useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
-const FamousCases = ({ onViewReport }: { onViewReport: (data: any) => void }) => {
+const FamousCases = ({ onViewReport, isLoggedIn }: { onViewReport: (data: any) => void; isLoggedIn: boolean }) => {
+  const navigate = useNavigate();
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
 
   useEffect(() => {
@@ -165,11 +168,25 @@ const FamousCases = ({ onViewReport }: { onViewReport: (data: any) => void }) =>
                       {item.description}
                     </p>
                     <Button 
-                      onClick={() => onViewReport(item.report)}
+                      onClick={() => {
+                        if (!isLoggedIn) {
+                          toast.info("Sign up to view full forensic analysis", {
+                            description: "Create a free account to unlock detailed reports.",
+                            action: { label: "Sign Up", onClick: () => navigate("/auth?mode=signup") },
+                          });
+                          navigate("/auth?mode=signup");
+                          return;
+                        }
+                        onViewReport(item.report);
+                      }}
                       className="w-full bg-glass border-glass hover:bg-primary hover:text-primary-foreground group transition-all"
                     >
-                      <Play className="mr-2 h-4 w-4 fill-current" />
-                      View Analysis
+                      {isLoggedIn ? (
+                        <Play className="mr-2 h-4 w-4 fill-current" />
+                      ) : (
+                        <Lock className="mr-2 h-4 w-4" />
+                      )}
+                      {isLoggedIn ? "View Analysis" : "Sign Up to View"}
                     </Button>
                   </div>
                 </div>

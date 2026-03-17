@@ -215,7 +215,7 @@ const Index = () => {
             />
           </div>
           {isLoggedIn && <PastAnalysis onViewReport={handleViewReport} />}
-          <FamousCases onViewReport={handleViewReport} />
+          <FamousCases onViewReport={handleViewReport} isLoggedIn={isLoggedIn} />
           {!isLoggedIn && (
             <>
               <Features />
