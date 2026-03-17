@@ -3,9 +3,12 @@ import os
 import PIL.Image
 import io
 
-AWS_ACCESS_KEY = "AKIA5MFD5O4QVSG2N32V"
-AWS_SECRET_KEY = "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"
-AWS_REGION = "us-east-1"
+
+# explainer.py - FIX THIS:
+
+AWS_ACCESS_KEY = os.getenv("AWS_ACCESS_KEY", "")
+AWS_SECRET_KEY = os.getenv("AWS_SECRET_KEY", "")
+AWS_REGION = "eu-north-1"
 
 rekognition = boto3.client(
     service_name="rekognition",
