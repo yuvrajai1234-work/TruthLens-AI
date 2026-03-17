@@ -1,4 +1,4 @@
-# Deepfake Insight Visualization
+# TruthLens AI
 
 ## Project Overview
 In this project, we aim to provide insights into deepfake technology through a user-friendly visualization tool. By leveraging advanced algorithms, we can detect and analyze deepfake content to raise awareness about its implications.
